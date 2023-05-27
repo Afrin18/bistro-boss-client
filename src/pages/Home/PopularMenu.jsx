@@ -5,7 +5,7 @@ import useMenu from '../../hooks/useMenu';
 
 const PopularMenu = () => {
     const [menu] = useMenu();
-    const popular = menu.filter(item => item.category === 'popular')
+    const popular = menu.filter(item => item.category === 'popular');
 
     // const [menu, setMenu] = useState([]);
     // useEffect( () => {
@@ -30,10 +30,9 @@ const PopularMenu = () => {
                     item={item}
                     >
                     </MenuItem>)
-                }
-                
+                }               
             </div>
-            <button className="mt-8 btn btn-outline border-0 border-b-4">View Full Menu</button>
+            <button className="mt-8 btn btn-outline mx-auto flex justify-center items-center border-0 border-b-4">View Full Menu</button>
         </section>
     );
 };
