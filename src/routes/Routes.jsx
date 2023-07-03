@@ -11,6 +11,8 @@ import PrivateRoute from './PrivateRoute';
 import Secret from '../pages/Shared/Secret';
 import Dashboard from '../Layout/Dashboard';
 import MyCart from '../pages/Dashboard/MyCart';
+import AllUsers from '../pages/Dashboard/AllUsers';
+import AddItem from '../pages/Dashboard/AddItem';
 
 export const router = createBrowserRouter([
   {
@@ -22,34 +24,42 @@ export const router = createBrowserRouter([
             element: <Home></Home>
         },
         {
-          path: '/menu',
+          path: 'menu',
           element: <Menu></Menu>
         },
         {
-          path: '/order/:category',
+          path: 'order/:category',
           element: <Order></Order>
         },
         {
-          path: '/login',
+          path: 'login',
           element: <Login></Login>
         },
         {
-          path: '/signUp',
+          path: 'signUp',
           element: <SignUp></SignUp>
         },
         {
-          path: '/secret',
+          path: 'secret',
           element: <PrivateRoute><Secret></Secret></PrivateRoute>
         }
     ]
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'myCart',
         element: <MyCart></MyCart>
+      },
+      {
+        path: 'allUsers',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'addItem',
+        element: <AddItem></AddItem>
       }
     ]
   }
